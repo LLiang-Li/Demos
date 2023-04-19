@@ -1,0 +1,33 @@
+%% file : sfun_ex_mySrc_LCT.tlc
+%% 
+%% Description:
+%%   Simulink Coder TLC Code Generation file for sfun_ex_mySrc_LCT
+%% 
+%% Simulink version      : 10.3 (R2021a) 14-Nov-2020
+%% TLC file generated on : 01-Sep-2022 16:40:43
+
+
+%implements Priority "C"
+
+%% Function: BlockTypeSetup ===============================================
+
+
+
+%% Function: Start ========================================================
+
+
+
+%% Function: Outputs ======================================================
+%function Outputs (block, system) Output
+
+%selectfile STDOUT
+*********************************************
+block = %<LibGetBlockName(block)>
+priority = %<LibBlockParameter(P1, "", "", 0)>;
+*********************************************
+%selectfile NULL_FILE 
+
+%endfunction
+
+
+%% [EOF]
