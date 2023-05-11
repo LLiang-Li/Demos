@@ -18,6 +18,7 @@
  * its associated macro definitions.
  */
 #include "simstruc.h"
+#include "mex.h"
 
 
 
@@ -72,7 +73,7 @@ static void mdlInitializeSizes(SimStruct *S)
      * A port has direct feedthrough if the input is used in either
      * the mdlOutputs or mdlGetTimeOfNextVarHit functions.
      */
-    ssSetInputPortDirectFeedThrough(S, 0, 0);
+    ssSetInputPortDirectFeedThrough(S, 0, 1);
 
     if (!ssSetNumOutputPorts(S, 1)) return;
     ssSetOutputPortWidth(S, 0, 1);
@@ -137,6 +138,16 @@ static void mdlInitializeSampleTimes(SimStruct *S)
    */
   static void mdlStart(SimStruct *S)
   {
+//       char* s = "123";
+//       mxArray* str[1];
+//       str[1] = s;
+//       char* s[1];
+//       //s[1] = "gcb";
+      mxArray* ptr[1];
+//       ptr[0]= mxCreateCharMatrixFromStrings((mwSize)1, (const char **)s);
+      ptr[0] = mxCreateString("gcb");
+      mexCallMATLAB(0,NULL,1, ptr, "my_disp");
+      mxDestroyArray(ptr[0]);
   }
 #endif /*  MDL_START */
 
